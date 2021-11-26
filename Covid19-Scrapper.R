@@ -29,5 +29,7 @@ df_country = df_country[1:225,]
 df_country[1] = sapply(df_country[1], function(x) { gsub("[\r\n]", "", x) })
 head(df_country)
 
-write.csv(df_country,"D:/College/MASTER/ONGOING SEMESTER/Personal-Projects/Covid/covid_by_country.csv", row.names = FALSE)
-write.csv(df_cont,"D:/College/MASTER/ONGOING SEMESTER/Personal-Projects/Covid/covid_by_continent.csv", row.names = FALSE)
+scriptDir <- dirname(rstudioapi::getSourceEditorContext()$path)
+
+write.csv(df_country, paste(scriptDir, "covid_by_country.csv", sep = "/"), row.names = FALSE)
+write.csv(df_cont, paste(scriptDir, "covid_by_continent.csv", sep = "/"), row.names = FALSE)
